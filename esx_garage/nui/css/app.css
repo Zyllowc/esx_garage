@@ -1,0 +1,311 @@
+@font-face {
+  font-family: roboto;
+  src: url("../roboto.ttf");
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: roboto;
+}
+
+#cursor {
+  position: absolute;
+  z-index: 999999;
+  display: none;
+}
+
+#container {
+  position: absolute;
+  background: #101010;
+  border-radius: 10px;
+  border-top: 20px solid #1f1f1f;
+  height: 800px;
+  width: 1400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+  display: flex;
+  flex-direction: column; /* Changed from unset to column */
+}
+
+#header {
+  color: white;
+  font-size: 44px;
+  border-radius: 10px 10px 0 0; /* Changed border-radius */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; /* Changed from column to row */
+  align-items: center; /* Changed from baseline to center */
+  width: 100%; /* Make header span the full width */
+  padding: 10px; /* Added padding */
+}
+
+.header-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #1f1f1f 50%, transparent);
+  margin-bottom: 10px;
+}
+
+#header .title {
+  margin-top: 0; /* Removed margin-top */
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+#header ul {
+  font-size: 18px;
+  margin-top: 0; /* Removed margin-top */
+  padding-inline: 50px;
+  list-style-type: none;
+  display: flex; /* Added flex display */
+}
+
+#header li {
+  cursor: pointer;
+  width: auto;
+  padding: 10px 15px; /* Increased padding for better click area */
+  margin: 0 5px; /* Added margin for spacing between items */
+  margin-top: 5px;
+  border-radius: 5px; /* Added border-radius for rounded corners */
+  transition: background-color 0.3s, font-weight 0.3s; /* Added transition for smooth hover effect */
+}
+
+#header li:hover {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7); /* Darkened background color on hover */
+  border: 1px solid #1f1f1f;
+}
+
+#header li.selected {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Darkened background color for selected item */
+  border: 1px solid #1f1f1f;
+}
+
+#header .close {
+  float: none; /* Removed float */
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 5px;
+  background: #00000026;
+  border: 1px solid #00000026;
+  border-radius: 5%;
+  height: 25px;
+  width: 25px;
+  margin: 0 30px 0 0; /* Adjusted margin */
+}
+
+#header .close:hover {
+  background: rgba(255, 59, 59, 0.15);
+}
+
+.clear-both {
+  clear: both;
+}
+
+#menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right-side {
+  width: 50%;
+}
+
+.content {
+  width: 100%;
+  margin: 20px;
+  color: white;
+  height: 655px;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.content h2 {
+  width: 290px;
+  height: 290px;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  margin: -25px 0 0 -25px;
+  text-align: center;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.impounded_content {
+  display: none;
+  width: 100%;
+  margin: 20px;
+  color: white;
+  height: 655px;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.impounded_content h2 {
+  width: 290px;
+  height: 290px;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  margin: -25px 0 0 -25px;
+  text-align: center;
+}
+
+.impounded_content::-webkit-scrollbar {
+  display: none;
+}
+
+.webgl {
+  position: fixed;
+  left: 0;
+  top: 0;
+  outline: none;
+}
+
+.content .vehicle-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.group {
+  margin: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: solid #353e4f 2px;
+  border-radius: 10px;
+}
+
+.group > button {
+  color: white;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #353e4f;
+  border-radius: 4px;
+  background-color: #353e4f;
+}
+
+.group > input {
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: #353e4f;
+  border: none;
+  border-radius: 4px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.group > input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.vehicle-listing {
+  display: inline-block;
+  flex-direction: row;
+  border: 2px solid #1f1f1f;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 20px 35px;
+  font-size: 18px;
+  text-align: left;
+  width: 229px;
+}
+
+.vehicle-listing div {
+  display: flow-root;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.vehicle-listing strong {
+  display: inline-block;
+}
+
+.vehicle-listing .vehicle-icon {
+  display: block;
+  margin: 10 auto 10px auto;
+  width: 230px; /* Set a default width */
+  height: 100px; /* Set a default height */
+  background-size: contain;
+  background-color: #1b1b1b42; /* Added background color */
+  border: 2px solid #1f1f1f; /* Added border */
+  border-radius: 5px; /* Added border-radius for rounded corners */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  padding-top: 20px; /* Added padding-top for space above the image */
+  margin-bottom: 20px;
+}
+
+.vehicle-listing .vehicle-icon::before {
+  content: "";
+  display: block;
+  width: 100px; /* Set the desired width for the image */
+  height: 50px; /* Set the desired height for the image */
+  background: url('../images/car-icon.png') no-repeat center center;
+  background-size: contain;
+  margin: 0 auto;
+}
+
+.unstyled-button {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.vehicle-action {
+  background: linear-gradient(to bottom, #1f1f1f 5%, #1f1f1f 100%);
+  background-color: #1f1f1f;
+  border-radius: 3px;
+  border: 1px solid #9292923a;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 15px;
+  text-shadow: -1px 1px 2px #00000026;
+  transition: background-color 0.3s, color 0.3s, border 0.3s; /* Added transition */
+}
+
+.vehicle-action:hover {
+  background: #23c55e;
+  background-color: #23c55e;
+  color: #1f1f1f;
+  border: 1px solid #92929281;
+}
+
+.vehicle-action.red {
+  border: 1px solid #92929281;
+  background: #1f1f1f;
+  background-color: #1f1f1f;
+  transition: background-color 0.3s, border 0.3s; /* Added transition */
+}
+
+.vehicle-action.red:hover {
+  border: 1px solid #92929281;
+  background: #d65151;
+  background-color: #d65151;
+}
